@@ -46,7 +46,7 @@
     "bootstrap": "^5.0.2",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
-    "node-sass": "6.0.0",
+    "node-sass": "4.0.0",
     "query-string": "^7.0.1",
     "react": "^17.0.1",
     "react-datepicker": "^4.1.1",
