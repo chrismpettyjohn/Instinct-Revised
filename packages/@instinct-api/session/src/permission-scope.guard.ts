@@ -1,4 +1,3 @@
-import {Observable} from 'rxjs';
 import {Reflector} from '@nestjs/core';
 import {RequestWithSession} from './session.type';
 import {Permissions} from '@instinct-prj/interface';
@@ -14,9 +13,7 @@ import {
 export class PermissionScopeGuard implements CanActivate {
   constructor(private readonly reflector: Reflector) {}
 
-  canActivate(
-    context: ExecutionContext
-  ): boolean | Promise<boolean> | Observable<boolean> {
+  canActivate(context: ExecutionContext): boolean {
     const scope: keyof Permissions = this.reflector.get(
       'scope',
       context.getHandler()
@@ -29,6 +26,6 @@ export class PermissionScopeGuard implements CanActivate {
       throw new ForbiddenException("You don't have permission to do this");
     }
 
-    return hasScope;
+    return true;
   }
 }

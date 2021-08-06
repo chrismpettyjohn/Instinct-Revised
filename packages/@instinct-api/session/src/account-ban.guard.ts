@@ -1,4 +1,3 @@
-import {Observable} from 'rxjs';
 import {RequestWithSession} from './session.type';
 import {
   Injectable,
@@ -9,9 +8,7 @@ import {
 
 @Injectable()
 export class AccountBannedGuard implements CanActivate {
-  canActivate(
-    context: ExecutionContext
-  ): boolean | Promise<boolean> | Observable<boolean> {
+  canActivate(context: ExecutionContext): boolean {
     const request: RequestWithSession = context.switchToHttp().getRequest();
 
     const timestamp = +new Date() / 1000;
